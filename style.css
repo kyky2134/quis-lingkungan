@@ -3,148 +3,164 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
-
-html {
-    scroll-behavior: smooth;
 }
 
 body {
-    background: #f1f8f3;
-    color: #244333;
-}
-
-header {
-    background: #167a49;
-    color: white;
-    padding: 20px 7%;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #8e0000, #e63946);
+    min-height: 100vh;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    margin-left: 20px;
-    font-weight: bold;
-}
-
-nav a:hover {
-    color: #b9f6ca;
-}
-
-.hero {
-    text-align: center;
-    padding: 100px 20px;
-    background: linear-gradient(120deg, #b8eac9, #e4f8e9);
-}
-
-.hero h1 {
-    font-size: 38px;
-    margin-bottom: 15px;
-}
-
-.hero p {
-    margin-bottom: 25px;
-    font-size: 18px;
-}
-
-button {
-    background: #16834d;
-    color: white;
-    border: none;
-    padding: 12px 25px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-button:hover {
-    background: #105e37;
-}
-
-section {
-    padding: 55px 7%;
-    text-align: center;
-}
-
-section h2 {
-    margin-bottom: 30px;
-}
-
-.container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
-}
-
-.card {
-    background: white;
-    padding: 30px 20px;
-    border-radius: 15px;
-    box-shadow: 0 4px 12px #00000012;
-    transition: 0.3s;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-}
-
-.card h3 {
-    margin-bottom: 15px;
-    color: #16834d;
-}
-
-.card p {
-    line-height: 1.6;
-}
-
-.game-box {
-    background: white;
-    max-width: 650px;
-    margin: auto;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 4px 12px #00000012;
-    line-height: 2;
-}
-
-#jawaban {
-    display: grid;
-    gap: 10px;
-    margin: 20px 0;
-}
-
-#jawaban button {
-    width: 100%;
-}
-
-#hasil {
-    margin: 15px 0;
-    font-weight: bold;
-}
-
-footer {
-    background: #145c38;
-    color: white;
-    text-align: center;
     padding: 20px;
 }
 
-@media(max-width: 600px) {
-    header {
-        flex-direction: column;
-        gap: 15px;
+.container {
+    background: white;
+    width: 100%;
+    max-width: 600px;
+    padding: 30px;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+h1 {
+    text-align: center;
+    color: #b00000;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: #444;
+}
+
+.progress {
+    width: 100%;
+    height: 10px;
+    background: #eee;
+    border-radius: 20px;
+    margin-bottom: 25px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background: #e63946;
+    transition: 0.3s;
+}
+
+.question {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.option {
+    background: #f5f5f5;
+    border: 2px solid #ddd;
+    padding: 14px;
+    margin-bottom: 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+    width: 100%;
+    text-align: left;
+    font-size: 16px;
+}
+
+.option:hover:not(:disabled) {
+    background: #ffe5e5;
+    border-color: #e63946;
+}
+
+.option.correct {
+    background: #d4edda;
+    border-color: #28a745;
+}
+
+.option.wrong {
+    background: #f8d7da;
+    border-color: #dc3545;
+}
+
+.option:disabled {
+    cursor: not-allowed;
+    color: #333;
+}
+
+.explanation {
+    display: none;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 20px;
+    line-height: 1.6;
+}
+
+.explanation.correct-box {
+    display: block;
+    background: #d4edda;
+    color: #155724;
+}
+
+.explanation.wrong-box {
+    display: block;
+    background: #f8d7da;
+    color: #721c24;
+}
+
+button {
+    border: none;
+    padding: 13px 22px;
+    border-radius: 9px;
+    background: #b00000;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+button:hover {
+    background: #e63946;
+}
+
+#nextBtn {
+    display: none;
+    width: 100%;
+}
+
+#result {
+    display: none;
+    text-align: center;
+}
+
+#result h2 {
+    color: #b00000;
+    margin-bottom: 15px;
+}
+
+#result p {
+    font-size: 19px;
+    margin: 12px;
+}
+
+@media(max-width: 480px) {
+    .container {
+        padding: 20px;
     }
 
-    nav a {
-        margin: 5px;
-    }
-
-    .hero h1 {
-        font-size: 28px;
+    .question {
+        font-size: 18px;
     }
 }

@@ -1,132 +1,254 @@
 
-const soal = [
+const questions = [
     {
-        pertanyaan: "Apa manfaat menanam pohon?",
-        jawaban: [
-            "Mengurangi oksigen",
-            "Menghasilkan oksigen",
-            "Merusak tanah",
-            "Mencemari udara"
+        question: "Kapan Indonesia memproklamasikan kemerdekaan?",
+        options: [
+            "17 Agustus 1945",
+            "10 November 1945",
+            "1 Juni 1945",
+            "20 Mei 1908"
         ],
-        benar: 1
+        answer: 0,
+        explanation: "Indonesia memproklamasikan kemerdekaan pada 17 Agustus 1945. Proklamasi dibacakan oleh Soekarno didampingi Mohammad Hatta di Jalan Pegangsaan Timur No. 56, Jakarta."
     },
     {
-        pertanyaan: "Apa arti dari prinsip 3R?",
-        jawaban: [
-            "Reduce, Reuse, Recycle",
-            "Run, Read, Rest",
-            "Repair, Remove, Return",
-            "Reuse, Reject, Repeat"
+        question: "Siapa presiden pertama Republik Indonesia?",
+        options: [
+            "Soeharto",
+            "Soekarno",
+            "Mohammad Hatta",
+            "B.J. Habibie"
         ],
-        benar: 0
+        answer: 1,
+        explanation: "Soekarno merupakan presiden pertama Republik Indonesia. Ia menjabat sejak tahun 1945 hingga 1967."
     },
     {
-        pertanyaan: "Bagaimana cara menghemat air?",
-        jawaban: [
-            "Membiarkan keran terbuka",
-            "Membuang air bersih",
-            "Menutup keran setelah digunakan",
-            "Menggunakan air berlebihan"
+        question: "Siapa wakil presiden pertama Indonesia?",
+        options: [
+            "Sutan Sjahrir",
+            "Ahmad Yani",
+            "Mohammad Hatta",
+            "Ki Hajar Dewantara"
         ],
-        benar: 2
+        answer: 2,
+        explanation: "Mohammad Hatta adalah wakil presiden pertama Indonesia. Ia mendampingi Soekarno setelah kemerdekaan."
     },
     {
-        pertanyaan: "Apa yang harus dilakukan terhadap sampah?",
-        jawaban: [
-            "Membuangnya ke sungai",
-            "Membakarnya sembarangan",
-            "Membuangnya di jalan",
-            "Memilah dan membuang pada tempatnya"
+        question: "Apa nama organisasi pergerakan nasional yang berdiri pada 20 Mei 1908?",
+        options: [
+            "Sarekat Islam",
+            "Budi Utomo",
+            "Indische Partij",
+            "Perhimpunan Indonesia"
         ],
-        benar: 3
+        answer: 1,
+        explanation: "Budi Utomo berdiri pada 20 Mei 1908. Organisasi ini menjadi salah satu pelopor kebangkitan nasional Indonesia."
     },
     {
-        pertanyaan: "Mengapa kita harus menjaga hutan?",
-        jawaban: [
-            "Agar pohon habis",
-            "Untuk menjaga keseimbangan ekosistem",
-            "Agar hewan kehilangan habitat",
-            "Untuk memperbanyak polusi"
+        question: "Kapan peristiwa Sumpah Pemuda terjadi?",
+        options: [
+            "17 Agustus 1945",
+            "28 Oktober 1928",
+            "1 Juni 1945",
+            "10 November 1945"
         ],
-        benar: 1
+        answer: 1,
+        explanation: "Sumpah Pemuda berlangsung pada 28 Oktober 1928. Peristiwa ini menegaskan persatuan tanah air, bangsa, dan bahasa Indonesia."
+    },
+    {
+        question: "Siapa tokoh yang dikenal sebagai Bapak Pendidikan Nasional?",
+        options: [
+            "Ki Hajar Dewantara",
+            "Soekarno",
+            "Mohammad Yamin",
+            "Pangeran Diponegoro"
+        ],
+        answer: 0,
+        explanation: "Ki Hajar Dewantara dikenal sebagai Bapak Pendidikan Nasional. Ia mendirikan Taman Siswa pada tahun 1922."
+    },
+    {
+        question: "Apa nama pertempuran besar pada 10 November 1945?",
+        options: [
+            "Bandung Lautan Api",
+            "Pertempuran Ambarawa",
+            "Pertempuran Surabaya",
+            "Perang Diponegoro"
+        ],
+        answer: 2,
+        explanation: "Pertempuran Surabaya terjadi pada 10 November 1945. Peristiwa ini menjadi simbol perjuangan rakyat mempertahankan kemerdekaan Indonesia."
+    },
+    {
+        question: "Siapa tokoh yang mengetik naskah Proklamasi Kemerdekaan Indonesia?",
+        options: [
+            "Sayuti Melik",
+            "Ahmad Soebardjo",
+            "Mohammad Hatta",
+            "Sutan Sjahrir"
+        ],
+        answer: 0,
+        explanation: "Sayuti Melik mengetik naskah Proklamasi yang sebelumnya dirumuskan oleh Soekarno, Mohammad Hatta, dan Ahmad Soebardjo."
+    },
+    {
+        question: "Kapan Indonesia resmi menjadi anggota PBB?",
+        options: [
+            "1945",
+            "1948",
+            "1950",
+            "1965"
+        ],
+        answer: 2,
+        explanation: "Indonesia resmi menjadi anggota Perserikatan Bangsa-Bangsa (PBB) pada 28 September 1950."
+    },
+    {
+        question: "Siapa pahlawan wanita dari Aceh yang terkenal melawan Belanda?",
+        options: [
+            "R.A. Kartini",
+            "Cut Nyak Dien",
+            "Dewi Sartika",
+            "Martha Christina Tiahahu"
+        ],
+        answer: 1,
+        explanation: "Cut Nyak Dien adalah pahlawan nasional dari Aceh yang memimpin perjuangan melawan penjajahan Belanda dalam Perang Aceh."
     }
 ];
 
-let nomor = 0;
-let skor = 0;
-let poin = 0;
-let terkunci = false;
+let currentQuestion = 0;
+let score = 0;
+let answered = false;
 
-function mulaiGame() {
-    nomor = 0;
-    skor = 0;
-    tampilkanSoal();
-    document.getElementById("game").scrollIntoView({
-        behavior: "smooth"
-    });
-}
+function loadQuestion() {
+    answered = false;
 
-function tampilkanSoal() {
-    terkunci = false;
+    const q = questions[currentQuestion];
 
-    if (nomor >= soal.length) {
-        document.getElementById("pertanyaan").innerText =
-            "Kuis selesai!";
+    document.getElementById("questionNumber").innerText =
+        `Soal ${currentQuestion + 1}/${questions.length}`;
 
-        document.getElementById("jawaban").innerHTML = "";
+    document.getElementById("score").innerText =
+        `Skor: ${score}`;
 
-        document.getElementById("hasil").innerText =
-            "Skor kamu: " + skor + " dari 100";
+    document.getElementById("progressBar").style.width =
+        `${(currentQuestion / questions.length) * 100}%`;
 
-        return;
-    }
+    document.getElementById("question").innerText = q.question;
 
-    let data = soal[nomor];
+    const optionsDiv = document.getElementById("options");
+    optionsDiv.innerHTML = "";
 
-    document.getElementById("pertanyaan").innerText =
-        (nomor + 1) + ". " + data.pertanyaan;
+    q.options.forEach((option, index) => {
+        const button = document.createElement("button");
 
-    document.getElementById("hasil").innerText = "";
+        button.className = "option";
+        button.innerText =
+            `${String.fromCharCode(65 + index)}. ${option}`;
 
-    let html = "";
+        button.onclick = () => checkAnswer(index, button);
 
-    data.jawaban.forEach((jawaban, index) => {
-        html += `<button onclick="periksaJawaban(${index})">
-            ${jawaban}
-        </button>`;
+        optionsDiv.appendChild(button);
     });
 
-    document.getElementById("jawaban").innerHTML = html;
+    const explanation = document.getElementById("explanation");
+
+    explanation.style.display = "none";
+    explanation.className = "explanation";
+    explanation.innerHTML = "";
+
+    document.getElementById("nextBtn").style.display = "none";
 }
 
-function periksaJawaban(pilihan) {
-    if (terkunci) return;
-    terkunci = true;
+function checkAnswer(selected, button) {
+    if (answered) return;
 
-    if (pilihan === soal[nomor].benar) {
-        skor += 20;
-        document.getElementById("hasil").innerText =
-            "Benar! Hebat, kamu mendapat 20 poin 🌟";
+    answered = true;
+
+    const q = questions[currentQuestion];
+    const allOptions = document.querySelectorAll(".option");
+
+    allOptions.forEach((option, index) => {
+        option.disabled = true;
+
+        if (index === q.answer) {
+            option.classList.add("correct");
+        }
+    });
+
+    const explanation = document.getElementById("explanation");
+
+    if (selected === q.answer) {
+        score += 10;
+
+        explanation.className = "explanation correct-box";
+        explanation.innerHTML = `
+            <strong>✅ Jawaban Benar!</strong><br>
+            ${q.explanation}
+        `;
     } else {
-        document.getElementById("hasil").innerText =
-            "Jawaban belum tepat. Tetap semangat!";
+        button.classList.add("wrong");
+
+        explanation.className = "explanation wrong-box";
+        explanation.innerHTML = `
+            <strong>❌ Jawaban Salah!</strong><br>
+            Jawaban yang benar adalah:
+            <strong>${q.options[q.answer]}</strong>
+            <br><br>
+            <strong>📚 Penjelasan:</strong><br>
+            ${q.explanation}
+        `;
     }
 
-    document.getElementById("jawaban").innerHTML +=
-        `<button onclick="soalBerikutnya()">Lanjutkan →</button>`;
+    document.getElementById("score").innerText =
+        `Skor: ${score}`;
+
+    document.getElementById("nextBtn").style.display = "block";
+
+    document.getElementById("nextBtn").innerText =
+        currentQuestion === questions.length - 1
+        ? "Lihat Hasil Quiz"
+        : "Soal Berikutnya →";
 }
 
-function soalBerikutnya() {
-    nomor++;
-    tampilkanSoal();
-}
+function nextQuestion() {
+    currentQuestion++;
 
-function tambahPoin(checkbox) {
-    if (checkbox.checked) {
-        poin += 10;
+    if (currentQuestion < questions.length) {
+        loadQuestion();
     } else {
-        poin -= 10;
+        showResult();
+    }
+}
+
+function showResult() {
+    document.getElementById("quiz").style.display = "none";
+    document.getElementById("result").style.display = "block";
+
+    document.getElementById("progressBar").style.width = "100%";
+
+    document.getElementById("finalScore").innerText =
+        `Skor Kamu: ${score} / 100`;
+
+    let message = "";
+
+    if (score === 100) {
+        message = "🏆 Luar biasa! Kamu sangat memahami sejarah Indonesia!";
+    } else if (score >= 70) {
+        message = "👏 Bagus! Pengetahuan sejarahmu sudah cukup baik.";
+    } else if (score >= 40) {
+        message = "👍 Lumayan! Terus belajar sejarah Indonesia.";
+    } else {
+        message = "📖 Jangan menyerah! Pelajari kembali sejarah Indonesia.";
     }
 
-    document.getElementById("poin").innerText = poin;
+    document.getElementById("message").innerText = message;
 }
+
+function restartQuiz() {
+    currentQuestion = 0;
+    score = 0;
+
+    document.getElementById("quiz").style.display = "block";
+    document.getElementById("result").style.display = "none";
+
+    loadQuestion();
+}
+
+loadQuestion();

@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoQuest - Game Edukasi Lingkungan</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h2>🌱 EcoQuest</h2>
+    <nav>
+        <a href="#home">Beranda</a>
+        <a href="#materi">Materi</a>
+        <a href="#game">Game</a>
+        <a href="#misi">Misi</a>
+    </nav>
+</header>
+
+<section class="hero" id="home">
+    <h1>Selamat Datang di EcoQuest 🌍</h1>
+    <p>Belajar menjaga lingkungan melalui permainan edukatif.</p>
+    <button onclick="mulaiGame()">Mulai Bermain</button>
+</section>
+
+<section id="materi">
+    <h2>Materi Konservasi Lingkungan</h2>
+
+    <div class="container">
+        <div class="card">
+            <h3>🌳 Pelestarian Hutan</h3>
+            <p>Menjaga hutan dengan menanam pohon dan mencegah penebangan liar.</p>
+        </div>
+
+        <div class="card">
+            <h3>💧 Konservasi Air</h3>
+            <p>Menghemat penggunaan air dan menjaga kebersihan sungai.</p>
+        </div>
+
+        <div class="card">
+            <h3>♻️ Pengelolaan Sampah</h3>
+            <p>Menerapkan prinsip Reduce, Reuse, dan Recycle.</p>
+        </div>
+
+        <div class="card">
+            <h3>⚡ Hemat Energi</h3>
+            <p>Mematikan lampu dan alat elektronik ketika tidak digunakan.</p>
+        </div>
+    </div>
+</section>
+
+<section id="game">
+    <h2>🎮 Game Kuis Lingkungan</h2>
+
+    <div class="game-box">
+        <h3 id="pertanyaan">Tekan mulai untuk bermain!</h3>
+        <div id="jawaban"></div>
+        <p id="hasil"></p>
+        <button onclick="mulaiGame()">Mulai Kuis</button>
+    </div>
+</section>
+
+<section id="misi">
+    <h2>🌱 Misi Hijau</h2>
+
+    <div class="game-box">
+        <label><input type="checkbox" onchange="tambahPoin(this)"> Menanam pohon</label><br>
+        <label><input type="checkbox" onchange="tambahPoin(this)"> Menghemat air</label><br>
+        <label><input type="checkbox" onchange="tambahPoin(this)"> Membuang sampah pada tempatnya</label><br>
+        <label><input type="checkbox" onchange="tambahPoin(this)"> Menghemat listrik</label>
+
+        <h3>Total Poin: <span id="poin">0</span></h3>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 EcoQuest - Game Edukasi Konservasi Lingkungan</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
